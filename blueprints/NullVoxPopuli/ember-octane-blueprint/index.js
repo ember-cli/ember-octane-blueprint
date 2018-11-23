@@ -1,6 +1,8 @@
 'use strict';
 
 const stringUtil = require('ember-cli-string-utils');
+const dasherize = require('ember-cli-string-utils').dasherize;
+const classify = require('ember-cli-string-utils').classify;
 
 module.exports = {
   description: 'Generates an Ember Octane application.',
@@ -8,18 +10,14 @@ module.exports = {
   filesToRemove: [],
 
   locals(options) {
-    let entity = options.entity;
-    let rawName = entity.name;
-    let name = stringUtil.dasherize(rawName);
-    let namespace = stringUtil.classify(rawName);
+    let name = dasherize(options.entity.name);
+    let blueprintVersion = require('./package').version;
 
     return {
       name,
-      modulePrefix: name,
-      namespace,
-      emberCLIVersion: require('../../package').version,
-      yarn: options.yarn,
-      welcome: options.welcome,
+      yarn: true,
+      welcome: false,
+      blueprintVersion,
     };
   },
 
