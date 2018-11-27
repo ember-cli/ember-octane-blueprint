@@ -10,15 +10,28 @@ module.exports = {
   filesToRemove: [],
 
   locals(options) {
-    let name = '@ember/octane';
+    let entity = options.entity;
+    let rawName = entity.name;
+    let name = stringUtil.dasherize(rawName);
+    let namespace = stringUtil.classify(rawName);
+
+    // let name = '@ember/octane';
     let blueprintVersion = require('./package').version;
 
     return {
       name,
+      modulePrefix: name,
+      namespace,
       yarn: true,
       welcome: false,
       blueprintVersion,
     };
+  },
+
+  filesPath: function() {
+    let filesDirectory = 'files';
+
+    return path.join('', filesDirectory);
   },
 
   fileMapTokens(options) {
