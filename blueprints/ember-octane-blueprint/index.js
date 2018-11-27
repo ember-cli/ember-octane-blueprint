@@ -10,7 +10,7 @@ module.exports = {
   filesToRemove: [],
 
   locals(options) {
-    let name = dasherize(options.entity.name);
+    let name = '@ember/octane';
     let blueprintVersion = require('./package').version;
 
     return {
@@ -27,7 +27,7 @@ module.exports = {
     };
   },
 
-  beforeInstall() {
+  afterInstall() {
     return this.addAddonsToProject([{
       // To be replaced by built-in decorators
       // Yet to be submitted
