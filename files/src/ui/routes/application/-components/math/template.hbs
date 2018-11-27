@@ -1,0 +1,9 @@
+<ConfigurableNumber
+  @value={{this.baseNumber}}
+  @onChange={{action (mut this.baseNumber)}} />
+
+<ConfigurableNumber
+  @value={{this.multiplier}}
+  @onChange={{action (mut this.multiplier)}} />
+
+{{this.result}}
