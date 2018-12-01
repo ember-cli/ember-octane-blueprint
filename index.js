@@ -48,6 +48,7 @@ module.exports = {
           // To be replaced by built-in decorators
           // Yet to be submitted
           name: 'ember-decorators',
+          target: '3.0.0',
         },
         {
           // TODO: To be replaced by built-in glimmer components
