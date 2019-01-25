@@ -37,7 +37,11 @@ jobs:
     - stage: "Quality"
       name: "Templates"
       install: cd $APP_PATH && yarn install --non-interactive
-      script: cd $APP_PATH && yarn lint:hbs
+      script: 
+       - ls
+       - ls packages
+       - ls packages/@ember
+       - cd $APP_PATH && yarn lint:hbs
 
     - stage: "Quality"
       name: "JS"   
