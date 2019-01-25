@@ -16,6 +16,8 @@ cache:
 
 env:
   global:
+    - APP_PATH="packages/@ember/octane-app-blueprint"
+    - ADDON_PATH="packages/@ember/octane-addon-blueprint"
     # See https://git.io/vdao3 for details.
     - JOBS=1
 
@@ -34,13 +36,17 @@ jobs:
     # runs linting and tests with current locked deps
 
     - stage: "Tests"
-      name: "Tests"
+      name: "Octane App Tests"
       install:
         - yarn install --non-interactive
       script:
-        - yarn lint:hbs
-        - yarn lint:js
-        - yarn test
+        - |
+          ( \
+            cd $APP_PATH && \
+            yarn lint:hbs && \
+            yarn lint:js && \
+            yarn test \
+          )
 
     - name: "Floating Dependencies"
       script:
@@ -61,7 +67,7 @@ before_install:
   - export PATH=$HOME/.yarn/bin:$PATH
 
 install:
-  - yarn install --no-lockfile --non-interactive
+  - cd $APP_PATH && yarn install --no-lockfile --non-interactive
 
 script:
-  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
+  - cd $APP_PATH && node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO

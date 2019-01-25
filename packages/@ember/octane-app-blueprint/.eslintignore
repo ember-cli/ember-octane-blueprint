@@ -1,5 +1,5 @@
 # handled by different .eslintrc.js
-/packages/@ember/octane-app-blueprint/files/
+/files/
 
 /vendor/
 
