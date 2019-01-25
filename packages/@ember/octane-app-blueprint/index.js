@@ -48,7 +48,6 @@ module.exports = {
       packages: [
         {
           // To be replaced by built-in decorators
-          // Yet to be submitted
           name: 'ember-decorators',
           target: '5.1.2',
         },
