@@ -1,10 +1,6 @@
----
 language: node_js
 node_js:
-  # we recommend testing addons with the same minimum supported node version as Ember CLI
-  # so that your addon works for all apps
-  - "6"
-
+- '10'
 sudo: false
 dist: trusty
 
@@ -16,66 +12,48 @@ cache:
 
 env:
   global:
-    - APP_PATH="packages/@ember/octane-app-blueprint"
-    - ADDON_PATH="packages/@ember/octane-addon-blueprint"
-    # See https://git.io/vdao3 for details.
-    - JOBS=1
-
-branches:
-  only:
-    - master
-    # npm version tags
-    - /^v\d+\.\d+\.\d+/
+  - APP_PATH="packages/@ember/octane-app-blueprint"
+  - ADDON_PATH="packages/@ember/octane-addon-blueprint"
+  - JOBS=1
 
 jobs:
   fail_fast: true
-  # allow_failures:
-  #   - env: EMBER_TRY_SCENARIO=ember-canary
-
   include:
-    # runs linting and tests with current locked deps
-    - stage: "Quality"
-      name: "Templates"
-      install: cd $APP_PATH && yarn install --non-interactive
-      script: yarn lint:hbs
 
-    - stage: "Quality"
-      name: "JS"   
-      install: cd $APP_PATH && yarn install --non-interactive
-      script: yarn lint:js
+  - stage: Quality
+    name: Templates
+    install: cd $APP_PATH && yarn install --non-interactive
+    script: yarn lint:hbs
 
-    - stage: "Tests"
-      name: "Octane App Tests"
-      install: cd $APP_PATH && yarn install --non-interactive
-      script: yarn test
+  - stage: Quality
+    name: JS
+    install: cd $APP_PATH && yarn install --non-interactive
+    script: yarn lint:js
 
-    - name: "Floating Dependencies"
-      script:
-        - yarn test
+  - stage: Tests
+    name: Octane App Tests
+    install: cd $APP_PATH && yarn install --non-interactive
+    script: yarn test
 
-    # we recommend new addons test the current and previous LTS
-    # as well as latest stable release (bonus points to beta/canary)
-    # - stage: "Additional Tests"
-    #   env: EMBER_TRY_SCENARIO=ember-lts-2.18
-    # - env: EMBER_TRY_SCENARIO=ember-lts-3.4
-    # - env: EMBER_TRY_SCENARIO=ember-release
-    # - env: EMBER_TRY_SCENARIO=ember-beta
-    # - env: EMBER_TRY_SCENARIO=ember-canary
-    # - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
-
-    - stage: "Publish Packages"
-      # will only publish if the current commit contains a tag
-      # git push --tags
-      if: tag IS present
-      node_js: 10
-      script: ./scripts/publish.sh
+  - stage: Publish Packages
+    only:
+      - "/^v\\d+\\.\\d+\\.\\d+/"
+    name: Publish App Blueprint
+    node_js: 10
+    install: "( cd $APP_PATH && yarn install --non-interactive )"
+    script: cd $APP_PATH
+    deploy:
+      provider: npm
+      email: theprecognition+npm@gmail.com
+      api_key:
+        secure: KBms6kydUUTuGD7XpWWBqbiijuylaz9HVGy484qnHAyHXk4LiLWlsIVkJkyE+YgbzJg4OxtJHbcf5K2yuJlBPKcrQV4NEa3Dw/NEJWS12PkBHERO3GT+3CaWdjYyd+x6WslstNxgvG3jp3uf9malPKZaZsK8K0h+eKXkaxUV+rKX+OIMWfI8ki7CPVsQkHcFfVrIq9nxrCdr3CUWbDs0Wju+aqcYyrsNwErmLY2OUgCKXWgMpqcOxVpaRKQhQwAin9ALDiQviBNVwvR7cqZCEoKWEW4PL3puQrzL8XbTA4hibyQM3GaetjJKlV3oLv0SX2I9ODcrUDp3l5iQQ8/Fbc+w97QpNwO+pCKNPI+GBGg1O+j5FcBBjSeIWHGu5Rn6vjbTzp27p2pTVTML3Ay1/ZzakKrlpMAttdHdsyN3n9N20CG5pVrLwElbYUCC3FWX6y4GLyEzVg7b9BAe3DDhO0oEFoHh+r9pBWrLbYdsIRDUp2PeYH1RMnAgd7FqNU8YScZ7mw9yhph2jOO96ZsdCZWqzYPUWsLIM54yT8eAvLkIgQkvg24G0ZakOKwamTjIUbjVDYhQhrviS0ZKO5bpUtZvp+vfrkLAqRzCZg/bAfk68wSWXN76KBkt+FP9Aoj40RcwJvxKZB77vX0rUm+V+v/ioKK/gkrG5+q96+anVUE=
+      on:
+        tags: true
+        # branch: master
+        repo: ember-cli/ember-octane-blueprint
+    after_deploy:
+      - echo "TODO: write a script to validate successful deploy"
 
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash
-  - export PATH=$HOME/.yarn/bin:$PATH
-
-install:
-  - cd $APP_PATH && yarn install --no-lockfile --non-interactive
-
-script:
-  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
+- curl -o- -L https://yarnpkg.com/install.sh | bash
+- export PATH=$HOME/.yarn/bin:$PATH
