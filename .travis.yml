@@ -16,6 +16,8 @@ cache:
 
 env:
   global:
+    - APP_PATH="packages/@ember/octane-app-blueprint"
+    - ADDON_PATH="packages/@ember/octane-addon-blueprint"
     # See https://git.io/vdao3 for details.
     - JOBS=1
 
@@ -27,20 +29,25 @@ branches:
 
 jobs:
   fail_fast: true
-  allow_failures:
-    - env: EMBER_TRY_SCENARIO=ember-canary
+  # allow_failures:
+  #   - env: EMBER_TRY_SCENARIO=ember-canary
 
   include:
     # runs linting and tests with current locked deps
+    - stage: "Quality"
+      name: "Templates"
+      install: cd $APP_PATH && yarn install --non-interactive
+      script: yarn lint:hbs
+
+    - stage: "Quality"
+      name: "JS"   
+      install: cd $APP_PATH && yarn install --non-interactive
+      script: yarn lint:js
 
     - stage: "Tests"
-      name: "Tests"
-      install:
-        - yarn install --non-interactive
-      script:
-        - yarn lint:hbs
-        - yarn lint:js
-        - yarn test
+      name: "Octane App Tests"
+      install: cd $APP_PATH && yarn install --non-interactive
+      script: yarn test
 
     - name: "Floating Dependencies"
       script:
@@ -48,20 +55,27 @@ jobs:
 
     # we recommend new addons test the current and previous LTS
     # as well as latest stable release (bonus points to beta/canary)
-    - stage: "Additional Tests"
-      env: EMBER_TRY_SCENARIO=ember-lts-2.16
-    - env: EMBER_TRY_SCENARIO=ember-lts-2.18
-    - env: EMBER_TRY_SCENARIO=ember-release
-    - env: EMBER_TRY_SCENARIO=ember-beta
-    - env: EMBER_TRY_SCENARIO=ember-canary
-    - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
+    # - stage: "Additional Tests"
+    #   env: EMBER_TRY_SCENARIO=ember-lts-2.18
+    # - env: EMBER_TRY_SCENARIO=ember-lts-3.4
+    # - env: EMBER_TRY_SCENARIO=ember-release
+    # - env: EMBER_TRY_SCENARIO=ember-beta
+    # - env: EMBER_TRY_SCENARIO=ember-canary
+    # - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
+
+    - stage: "Publish Packages"
+      # will only publish if the current commit contains a tag
+      # git push --tags
+      if: tag IS present
+      node_js: 10
+      script: ./scripts/publish.sh
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH=$HOME/.yarn/bin:$PATH
 
 install:
-  - yarn install --no-lockfile --non-interactive
+  - cd $APP_PATH && yarn install --no-lockfile --non-interactive
 
 script:
   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
