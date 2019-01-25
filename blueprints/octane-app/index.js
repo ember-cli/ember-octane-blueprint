@@ -10,7 +10,8 @@ module.exports = {
 
   locals(options) {
     let name = dasherize(options.entity.name);
-    let blueprintVersion = require('./package').version;
+    let blueprintVersion = require('../../package').version;
+
 
     let entity = options.entity;
     let rawName = entity.name;
