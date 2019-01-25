@@ -1,5 +1,6 @@
-# unconventional js
-/blueprints/*/files/
+# handled by different .eslintrc.js
+/packages/@ember/octane-app-blueprint/files/
+
 /vendor/
 
 # compiled output
