@@ -5,13 +5,14 @@ const classify = require('ember-cli-string-utils').classify;
 
 module.exports = {
   description: 'Generates an Ember Octane application.',
+  // name: '@ember/octane-app-blueprint',
+  name: 'ember-octane-app-blueprint',
 
   filesToRemove: [],
 
   locals(options) {
     let name = dasherize(options.entity.name);
-    let blueprintVersion = require('./package.json').version;
-
+    let blueprintVersion = require('./package').version;
 
     let entity = options.entity;
     let rawName = entity.name;
