@@ -37,21 +37,17 @@ jobs:
     - stage: "Quality"
       name: "Templates"
       install: cd $APP_PATH && yarn install --non-interactive
-      script: 
-       - ls
-       - ls packages
-       - ls packages/@ember
-       - cd $APP_PATH && yarn lint:hbs
+      script: yarn lint:hbs
 
     - stage: "Quality"
       name: "JS"   
       install: cd $APP_PATH && yarn install --non-interactive
-      script: cd $APP_PATH && yarn lint:js
+      script: yarn lint:js
 
     - stage: "Tests"
       name: "Octane App Tests"
-      install: yarn install --non-interactive
-      script: cd $APP_PATH && yarn test
+      install: cd $APP_PATH && yarn install --non-interactive
+      script: yarn test
 
     - name: "Floating Dependencies"
       script:
