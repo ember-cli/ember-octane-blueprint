@@ -34,19 +34,20 @@ jobs:
 
   include:
     # runs linting and tests with current locked deps
+    - stage: "Quality"
+      name: "Templates"
+      install: cd $APP_PATH && yarn install --non-interactive
+      script: cd $APP_PATH && yarn lint:hbs
+
+    - stage: "Quality"
+      name: "JS"   
+      install: cd $APP_PATH && yarn install --non-interactive
+      script: cd $APP_PATH && yarn lint:js
 
     - stage: "Tests"
       name: "Octane App Tests"
-      install:
-        - yarn install --non-interactive
-      script:
-        - |
-          ( \
-            cd $APP_PATH && \
-            yarn lint:hbs && \
-            yarn lint:js && \
-            yarn test \
-          )
+      install: yarn install --non-interactive
+      script: cd $APP_PATH && yarn test
 
     - name: "Floating Dependencies"
       script:
