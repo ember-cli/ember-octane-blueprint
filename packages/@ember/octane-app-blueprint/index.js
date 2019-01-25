@@ -26,9 +26,9 @@ module.exports = {
       welcome: false,
       blueprintVersion,
       versions: {
-        emberCLI: 'github:ember-cli/ember-cli#d577278e0174ca091c1e8fc0a3995cf92f6943d4',
-        ember: this.emberCanaryUrlForVersion('7666b706522bc486499761d5ef37679be2f45052'),
-        emberData: '~3.5.0',
+        emberCLI: 'github:ember-cli/ember-cli#31ed51040c51e6d47c9fc3bb860f46108feefea2',
+        ember: this.emberCanaryUrlForVersion('c24bc23e4139c90c8d8d96c4234d9c0c19e5c594'),
+        emberData: '~3.7.0',
       }
     };
   },
@@ -50,7 +50,7 @@ module.exports = {
           // To be replaced by built-in decorators
           // Yet to be submitted
           name: 'ember-decorators',
-          target: '3.0.0',
+          target: '5.1.2',
         },
         {
           // TODO: To be replaced by built-in glimmer components
