@@ -1,10 +1,10 @@
-ember-octane-blueprint
+Octane Blueprints
 ==============================================================================
 
+
 ```bash
-
+# Apps
 ember new my-app -b ember-octane-blueprint
-
 ```
 
 Included:
