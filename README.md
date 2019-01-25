@@ -1,10 +1,20 @@
 Octane Blueprints
 ==============================================================================
 
+Pre-Official ember packages:
 
 ```bash
 # Apps
-ember new my-app -b ember-octane-blueprint
+ember new my-app -b ember-octane-app-blueprint
+```
+
+Official ember packages (these do not exist yet)
+```bash
+# Apps
+ember new my-app -b @ember/octane-app
+
+# Addons
+ember new my-app -b @ember/octane-blueprint
 ```
 
 Included:
