@@ -16,6 +16,12 @@ env:
   - ADDON_PATH="packages/@ember/octane-addon-blueprint"
   - JOBS=1
 
+branches:
+  only:
+  - master
+  # npm version tags
+  - /^v\d+\.\d+\.\d+/
+
 jobs:
   fail_fast: true
   include:
@@ -36,12 +42,12 @@ jobs:
     script: yarn test
 
   - stage: Publish Packages
-    on:
-      tags: true
     name: Publish App Blueprint
+    if: tag IS present
     node_js: 10
     install: "( cd $APP_PATH && yarn install --non-interactive )"
-    script: cp README.md $APP_PATH/README.md && cd $APP_PATH
+    script: cp README.md $APP_PATH/README.md && git add . && git commit -m"add readme" && cd $APP_PATH
+
     deploy:
       provider: npm
       email: theprecognition+npm@gmail.com
