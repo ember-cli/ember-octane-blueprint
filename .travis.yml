@@ -49,6 +49,8 @@ jobs:
     script: cp README.md $APP_PATH/README.md && git add . && git commit -m"add readme" && cd $APP_PATH
 
     deploy:
+      on:
+        tags: true
       provider: npm
       email: theprecognition+npm@gmail.com
       api_key:
