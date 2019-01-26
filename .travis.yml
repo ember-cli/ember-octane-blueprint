@@ -41,7 +41,7 @@ jobs:
     name: Publish App Blueprint
     node_js: 10
     install: "( cd $APP_PATH && yarn install --non-interactive )"
-    script: cd $APP_PATH
+    script: cp README.md $APP_PATH/README.md && cd $APP_PATH
     deploy:
       provider: npm
       email: theprecognition+npm@gmail.com
