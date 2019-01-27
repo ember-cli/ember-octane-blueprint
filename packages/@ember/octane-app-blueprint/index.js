@@ -23,7 +23,7 @@ module.exports = {
       modulePrefix: name,
       namespace,
       yarn: true,
-      welcome: false,
+      welcome: options.welcome,
       blueprintVersion,
       versions: {
         emberCLI: 'github:ember-cli/ember-cli#31ed51040c51e6d47c9fc3bb860f46108feefea2',
