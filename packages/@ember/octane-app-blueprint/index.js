@@ -12,8 +12,6 @@ module.exports = {
 
   locals(options) {
     let name = dasherize(options.entity.name);
-    let blueprintVersion = require('./package').version;
-
     let entity = options.entity;
     let rawName = entity.name;
     let namespace = classify(rawName);
@@ -24,7 +22,6 @@ module.exports = {
       namespace,
       yarn: options.yarn,
       welcome: options.welcome,
-      blueprintVersion,
       versions: {
         emberCLI: 'github:ember-cli/ember-cli#31ed51040c51e6d47c9fc3bb860f46108feefea2',
         ember: this.emberCanaryUrlForVersion('c24bc23e4139c90c8d8d96c4234d9c0c19e5c594'),
