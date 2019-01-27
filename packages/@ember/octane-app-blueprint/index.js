@@ -22,7 +22,7 @@ module.exports = {
       name,
       modulePrefix: name,
       namespace,
-      yarn: true,
+      yarn: options.yarn,
       welcome: options.welcome,
       blueprintVersion,
       versions: {
