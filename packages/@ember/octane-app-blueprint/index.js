@@ -1,7 +1,7 @@
 'use strict';
 
-const dasherize = require('ember-cli-string-utils').dasherize;
-const classify = require('ember-cli-string-utils').classify;
+const stringUtil = require('ember-cli-string-utils');
+const getURLFor = require('ember-source-channel-url');
 
 module.exports = {
   description: 'Generates an Ember Octane application.',
@@ -11,27 +11,27 @@ module.exports = {
   filesToRemove: [],
 
   locals(options) {
-    let name = dasherize(options.entity.name);
-    let entity = options.entity;
-    let rawName = entity.name;
-    let namespace = classify(rawName);
 
-    return {
-      name,
-      modulePrefix: name,
-      namespace,
-      yarn: options.yarn,
-      welcome: options.welcome,
-      versions: {
-        emberCLI: 'github:ember-cli/ember-cli#31ed51040c51e6d47c9fc3bb860f46108feefea2',
-        ember: this.emberCanaryUrlForVersion('c24bc23e4139c90c8d8d96c4234d9c0c19e5c594'),
-        emberData: '~3.7.0',
-      }
-    };
-  },
+    return getURLFor('canary').then(url => {
+      let emberCanaryVersion = url;
+      let name = stringUtil.dasherize(options.entity.name);
+      let entity = options.entity;
+      let rawName = entity.name;
+      let namespace = stringUtil.classify(rawName);
 
-  emberCanaryUrlForVersion(version) {
-    return `https://s3.amazonaws.com/builds.emberjs.com/canary/shas/${version}.tgz`
+      return {
+        name,
+        modulePrefix: name,
+        namespace,
+        yarn: options.yarn,
+        welcome: options.welcome,
+        emberCanaryVersion,
+        versions: {
+          emberCLI: 'github:ember-cli/ember-cli#31ed51040c51e6d47c9fc3bb860f46108feefea2',
+          emberData: '~3.7.0',
+        }
+      };
+    });
   },
 
   fileMapTokens(options) {
