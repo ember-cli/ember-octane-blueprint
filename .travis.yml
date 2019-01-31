@@ -27,11 +27,6 @@ jobs:
   include:
 
   - stage: Quality
-    name: Templates
-    install: cd $APP_PATH && yarn install --non-interactive
-    script: yarn lint:hbs
-
-  - stage: Quality
     name: JS
     install: cd $APP_PATH && yarn install --non-interactive
     script: yarn lint:js
