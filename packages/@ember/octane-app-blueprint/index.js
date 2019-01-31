@@ -2,6 +2,7 @@
 
 const stringUtil = require('ember-cli-string-utils');
 const getURLFor = require('ember-source-channel-url');
+const getRepoCommitVersion = require('./utils/get-repo-commit-version');
 
 module.exports = {
   description: 'Generates an Ember Octane application.',
@@ -11,8 +12,13 @@ module.exports = {
   filesToRemove: [],
 
   locals(options) {
+    let emberCLI;
 
-    return getURLFor('canary').then(url => {
+    return getRepoCommitVersion('ember-cli', 'ember-cli').then((url) => {
+      emberCLI = url
+      return getURLFor('canary');
+    }).then( (url) => {
+
       let emberCanaryVersion = url;
       let name = stringUtil.dasherize(options.entity.name);
       let entity = options.entity;
@@ -26,11 +32,10 @@ module.exports = {
         yarn: options.yarn,
         welcome: options.welcome,
         emberCanaryVersion,
-        versions: {
-          emberCLI: 'github:ember-cli/ember-cli'
-        }
+        emberCLI
       };
     });
+
   },
 
   fileMapTokens(options) {

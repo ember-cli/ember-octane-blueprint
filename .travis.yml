@@ -31,11 +31,6 @@ jobs:
     install: cd $APP_PATH && yarn install --non-interactive
     script: yarn lint:js
 
-  - stage: Tests
-    name: Octane App Tests
-    install: cd $APP_PATH && yarn install --non-interactive
-    script: yarn test
-
   - stage: Publish Packages
     name: Publish App Blueprint
     if: tag IS present
