@@ -27,8 +27,7 @@ module.exports = {
         welcome: options.welcome,
         emberCanaryVersion,
         versions: {
-          emberCLI: 'github:ember-cli/ember-cli',
-          emberData: '~3.7.0',
+          emberCLI: 'github:ember-cli/ember-cli'
         }
       };
     });
@@ -48,6 +47,7 @@ module.exports = {
           name: 'ember-decorators',
           target: '5.1.2',
         },
+        {name: 'ember-data'},
         {
           // TODO: To be replaced by built-in glimmer components
           //       https://github.com/emberjs/rfcs/pull/338
