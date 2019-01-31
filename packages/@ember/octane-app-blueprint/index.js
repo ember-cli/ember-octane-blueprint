@@ -1,7 +1,8 @@
 'use strict';
 
-const dasherize = require('ember-cli-string-utils').dasherize;
-const classify = require('ember-cli-string-utils').classify;
+const stringUtil = require('ember-cli-string-utils');
+const getURLFor = require('ember-source-channel-url');
+const getRepoCommitVersion = require('./utils/get-repo-commit-version');
 
 module.exports = {
   description: 'Generates an Ember Octane application.',
@@ -11,30 +12,30 @@ module.exports = {
   filesToRemove: [],
 
   locals(options) {
-    let name = dasherize(options.entity.name);
-    let blueprintVersion = require('./package').version;
+    let emberCLI;
 
-    let entity = options.entity;
-    let rawName = entity.name;
-    let namespace = classify(rawName);
+    return getRepoCommitVersion('ember-cli', 'ember-cli').then((url) => {
+      emberCLI = url
+      return getURLFor('canary');
+    }).then( (url) => {
 
-    return {
-      name,
-      modulePrefix: name,
-      namespace,
-      yarn: true,
-      welcome: false,
-      blueprintVersion,
-      versions: {
-        emberCLI: 'github:ember-cli/ember-cli#31ed51040c51e6d47c9fc3bb860f46108feefea2',
-        ember: this.emberCanaryUrlForVersion('c24bc23e4139c90c8d8d96c4234d9c0c19e5c594'),
-        emberData: '~3.7.0',
-      }
-    };
-  },
+      let emberCanaryVersion = url;
+      let name = stringUtil.dasherize(options.entity.name);
+      let entity = options.entity;
+      let rawName = entity.name;
+      let namespace = stringUtil.classify(rawName);
 
-  emberCanaryUrlForVersion(version) {
-    return `https://s3.amazonaws.com/builds.emberjs.com/canary/shas/${version}.tgz`
+      return {
+        name,
+        modulePrefix: name,
+        namespace,
+        yarn: options.yarn,
+        welcome: options.welcome,
+        emberCanaryVersion,
+        emberCLI
+      };
+    });
+
   },
 
   fileMapTokens(options) {
@@ -51,6 +52,7 @@ module.exports = {
           name: 'ember-decorators',
           target: '5.1.2',
         },
+        {name: 'ember-data'},
         {
           // TODO: To be replaced by built-in glimmer components
           //       https://github.com/emberjs/rfcs/pull/338

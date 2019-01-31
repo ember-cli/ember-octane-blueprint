@@ -27,19 +27,9 @@ jobs:
   include:
 
   - stage: Quality
-    name: Templates
-    install: cd $APP_PATH && yarn install --non-interactive
-    script: yarn lint:hbs
-
-  - stage: Quality
     name: JS
     install: cd $APP_PATH && yarn install --non-interactive
     script: yarn lint:js
-
-  - stage: Tests
-    name: Octane App Tests
-    install: cd $APP_PATH && yarn install --non-interactive
-    script: yarn test
 
   - stage: Publish Packages
     name: Publish App Blueprint
