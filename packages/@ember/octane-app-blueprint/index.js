@@ -27,7 +27,7 @@ module.exports = {
         welcome: options.welcome,
         emberCanaryVersion,
         versions: {
-          emberCLI: 'github:ember-cli/ember-cli#31ed51040c51e6d47c9fc3bb860f46108feefea2',
+          emberCLI: 'github:ember-cli/ember-cli',
           emberData: '~3.7.0',
         }
       };
