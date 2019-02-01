@@ -28,6 +28,11 @@ jobs:
 
   - stage: Quality
     name: JS
+    install: cd $ADDON_PATH && yarn install --non-interactive
+    script: yarn lint:js
+
+  - stage: Quality
+    name: JS
     install: cd $APP_PATH && yarn install --non-interactive
     script: yarn lint:js
 

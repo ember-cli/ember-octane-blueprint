@@ -1,0 +1,23 @@
+{
+  "name": "ember-octane-addon-blueprint",
+  "version": "0.0.1",
+  "description": "The default blueprint for octane addons.",
+  "keywords": [
+    "ember-addon",
+    "ember-blueprint"
+  ],
+  "repository": "",
+  "license": "MIT",
+  "author": "",
+  "scripts": {
+    "lint:js": "eslint ."
+  },
+  "dependencies": {
+    "ember-cli-string-utils": "^1.1.0",
+    "ember-source-channel-url": "^1.1.0",
+    "octane-blueprint-utils": "file:../../octane-blueprint-utils"
+  },
+  "engines": {
+    "node": "6.* || 8.* || >= 10.*"
+  }
+}
