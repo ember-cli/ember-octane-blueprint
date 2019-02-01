@@ -1,0 +1,9 @@
+{
+  "name": "octane-blueprint-utils",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "ember-cli contributors",
+  "dependencies": {
+    "got": "^9.6.0"
+  }
+}

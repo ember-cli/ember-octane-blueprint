@@ -5,7 +5,10 @@ Pre-Official ember packages:
 
 ```bash
 # Apps
-ember new my-app -b ember-octane-app-blueprint
+ember new my-app -b ./ember-octane-blueprint/packages/\@ember/octane-app-blueprint
+
+# Addons
+ember addon my-addon -b ./ember-octane-blueprint/packages/\@ember/octane-addon-blueprint
 ```
 
 Official ember packages (these do not exist yet)

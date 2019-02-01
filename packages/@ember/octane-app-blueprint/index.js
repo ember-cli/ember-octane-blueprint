@@ -2,7 +2,7 @@
 
 const stringUtil = require('ember-cli-string-utils');
 const getURLFor = require('ember-source-channel-url');
-const getRepoCommitVersion = require('./utils/get-repo-commit-version');
+const getRepoCommitVersion = require('octane-blueprint-utils').getRepoCommitVersion;
 
 module.exports = {
   description: 'Generates an Ember Octane application.',
