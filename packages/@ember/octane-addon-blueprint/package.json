@@ -15,7 +15,7 @@
   "dependencies": {
     "ember-cli-string-utils": "^1.1.0",
     "ember-source-channel-url": "^1.1.0",
-    "octane-blueprint-utils": "file:../../octane-blueprint-utils"
+    "octane-blueprint-utils": "^0.0.1"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"

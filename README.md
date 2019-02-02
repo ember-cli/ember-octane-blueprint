@@ -47,10 +47,10 @@ yarn install
 cd ~
 
 # Create octane app using the local blueprint
-ember new my-app -b PATH/ember-octane-blueprint/packages/\@ember/octane-app-blueprint
+ember new my-app -b $pathToBlueprintRepo/ember-octane-blueprint/packages/\@ember/octane-app-blueprint
 
 # Create octane addon using the local blueprint
-ember addon my-addon -b PATH/ember-octane-blueprint/packages/\@ember/octane-addon-blueprint
+ember addon my-addon -b $pathToBlueprintRepo/ember-octane-blueprint/packages/\@ember/octane-addon-blueprint
 
 ```
 
