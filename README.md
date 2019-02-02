@@ -1,5 +1,10 @@
 Octane Blueprints
 ==============================================================================
+[![Build Status](https://travis-ci.org/ember-cli/ember-octane-blueprint.svg?branch=master)](https://travis-ci.org/ember-cli/ember-octane-blueprint)
+
+[![App](https://img.shields.io/npm/v/ember-octane-app-blueprint.svg?label=App)](https://www.npmjs.com/package/ember-octane-app-blueprint)
+[![Addon](https://img.shields.io/npm/v/ember-octane-addon-blueprint.svg?label=Addon)](https://www.npmjs.com/package/ember-octane-addon-blueprint)
+
 
 Pre-Official ember packages:
 
