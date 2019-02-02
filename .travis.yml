@@ -36,10 +36,17 @@ jobs:
     install: cd $APP_PATH && yarn install --non-interactive
     script: yarn lint:js
 
+  ###################################
+  # Auto-publish the npm packages
+  ###################################
   - stage: Publish Packages
     name: Publish App Blueprint
     if: tag IS present
     node_js: 10
+    addons:
+      apt:
+        packages:
+          - jq
     install: "( cd $APP_PATH && yarn install --non-interactive )"
     script: cp README.md $APP_PATH/README.md && git add . && git commit -m"add readme" && cd $APP_PATH
 
@@ -51,7 +58,30 @@ jobs:
       api_key:
         secure: KBms6kydUUTuGD7XpWWBqbiijuylaz9HVGy484qnHAyHXk4LiLWlsIVkJkyE+YgbzJg4OxtJHbcf5K2yuJlBPKcrQV4NEa3Dw/NEJWS12PkBHERO3GT+3CaWdjYyd+x6WslstNxgvG3jp3uf9malPKZaZsK8K0h+eKXkaxUV+rKX+OIMWfI8ki7CPVsQkHcFfVrIq9nxrCdr3CUWbDs0Wju+aqcYyrsNwErmLY2OUgCKXWgMpqcOxVpaRKQhQwAin9ALDiQviBNVwvR7cqZCEoKWEW4PL3puQrzL8XbTA4hibyQM3GaetjJKlV3oLv0SX2I9ODcrUDp3l5iQQ8/Fbc+w97QpNwO+pCKNPI+GBGg1O+j5FcBBjSeIWHGu5Rn6vjbTzp27p2pTVTML3Ay1/ZzakKrlpMAttdHdsyN3n9N20CG5pVrLwElbYUCC3FWX6y4GLyEzVg7b9BAe3DDhO0oEFoHh+r9pBWrLbYdsIRDUp2PeYH1RMnAgd7FqNU8YScZ7mw9yhph2jOO96ZsdCZWqzYPUWsLIM54yT8eAvLkIgQkvg24G0ZakOKwamTjIUbjVDYhQhrviS0ZKO5bpUtZvp+vfrkLAqRzCZg/bAfk68wSWXN76KBkt+FP9Aoj40RcwJvxKZB77vX0rUm+V+v/ioKK/gkrG5+q96+anVUE=
     after_deploy:
-      - echo "TODO: write a script to validate successful deploy"
+      - cd $TRAVIS_BUILD_DIR && ./scripts/verify-publish.sh @ember/octane-app-blueprint
+
+  - stage: Publish Packages
+    name: Publish Addon Blueprint
+    if: tag IS present
+    node_js: 10
+    addons:
+      apt:
+        packages:
+          - jq
+    install: "( cd $APP_PATH && yarn install --non-interactive )"
+    script: cp README.md $APP_PATH/README.md && git add . && git commit -m"add readme" && cd $APP_PATH
+
+    deploy:
+      on:
+        tags: true
+      provider: npm
+      email: theprecognition+npm@gmail.com
+      api_key:
+        secure: KBms6kydUUTuGD7XpWWBqbiijuylaz9HVGy484qnHAyHXk4LiLWlsIVkJkyE+YgbzJg4OxtJHbcf5K2yuJlBPKcrQV4NEa3Dw/NEJWS12PkBHERO3GT+3CaWdjYyd+x6WslstNxgvG3jp3uf9malPKZaZsK8K0h+eKXkaxUV+rKX+OIMWfI8ki7CPVsQkHcFfVrIq9nxrCdr3CUWbDs0Wju+aqcYyrsNwErmLY2OUgCKXWgMpqcOxVpaRKQhQwAin9ALDiQviBNVwvR7cqZCEoKWEW4PL3puQrzL8XbTA4hibyQM3GaetjJKlV3oLv0SX2I9ODcrUDp3l5iQQ8/Fbc+w97QpNwO+pCKNPI+GBGg1O+j5FcBBjSeIWHGu5Rn6vjbTzp27p2pTVTML3Ay1/ZzakKrlpMAttdHdsyN3n9N20CG5pVrLwElbYUCC3FWX6y4GLyEzVg7b9BAe3DDhO0oEFoHh+r9pBWrLbYdsIRDUp2PeYH1RMnAgd7FqNU8YScZ7mw9yhph2jOO96ZsdCZWqzYPUWsLIM54yT8eAvLkIgQkvg24G0ZakOKwamTjIUbjVDYhQhrviS0ZKO5bpUtZvp+vfrkLAqRzCZg/bAfk68wSWXN76KBkt+FP9Aoj40RcwJvxKZB77vX0rUm+V+v/ioKK/gkrG5+q96+anVUE=
+    after_deploy:
+      - cd $TRAVIS_BUILD_DIR && ./scripts/verify-publish.sh @ember/octane-addon-blueprint
+
+
 
 before_install:
 - curl -o- -L https://yarnpkg.com/install.sh | bash
