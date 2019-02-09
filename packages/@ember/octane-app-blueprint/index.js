@@ -58,6 +58,10 @@ module.exports = {
           //       https://github.com/emberjs/rfcs/pull/338
           name: 'sparkles-component'
         },
+        {
+          // TODO: To be replaced by built-in render-modifiers
+          name: '@ember/render-modifiers'
+        },
         // {
         //   // TODO: To be (partially) replaced by
         //   //       https://github.com/emberjs/rfcs/pull/388

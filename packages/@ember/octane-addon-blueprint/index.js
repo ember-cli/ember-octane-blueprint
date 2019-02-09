@@ -52,6 +52,9 @@ module.exports = {
         {
           name: 'ember-auto-import'
         },
+        {
+          name: '@ember/render-modifiers'
+        }
       ]
     });
   }
