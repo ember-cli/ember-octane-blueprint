@@ -68,8 +68,8 @@ jobs:
       apt:
         packages:
           - jq
-    install: "( cd $APP_PATH && yarn install --non-interactive )"
-    script: cp README.md $APP_PATH/README.md && git add . && git commit -m"add readme" && cd $APP_PATH
+    install: "( cd $ADDON_PATH && yarn install --non-interactive )"
+    script: cp README.md $ADDON_PATH/README.md && git add . && git commit -m"add readme" && cd $ADDON_PATH
 
     deploy:
       on:
