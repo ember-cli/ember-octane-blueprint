@@ -19,3 +19,12 @@ function assertPath() {
         exit 1
     fi
 }
+
+#
+# $1 - the path of a project
+function setup() {
+    echo "Installing blueprint dependencies"
+    (
+        cd $1 && yarn install
+    )
+}

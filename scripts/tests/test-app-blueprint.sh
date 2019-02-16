@@ -9,9 +9,10 @@ source ./scripts/tests/-helpers.sh
 name="my-app"
 
 requireVar "APP_PATH"
-
 rm -rf $name
 
-npx ember-cli new $name -b $APP_PATH
+setup $APP_PATH
+
+npx ember-cli new $name -b "./$APP_PATH" --verbose
 
 assertPath "$name/src"
