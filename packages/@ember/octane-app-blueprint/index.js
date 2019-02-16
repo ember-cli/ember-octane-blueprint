@@ -47,11 +47,6 @@ module.exports = {
   afterInstall() {
     return this.addAddonsToProject({
       packages: [
-        {
-          // To be replaced by built-in decorators
-          name: 'ember-decorators',
-          target: '5.1.2',
-        },
         {name: 'ember-data'},
         {
           // TODO: To be replaced by built-in glimmer components
