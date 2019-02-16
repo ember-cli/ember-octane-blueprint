@@ -13,6 +13,6 @@ rm -rf $name
 
 setup $ADDON_PATH
 
-npx ember-cli addon $name -b $ADDON_PATH
+npx ember-cli addon $name -b "./$ADDON_PATH" --verbose
 
 assertPath "$name/src"
