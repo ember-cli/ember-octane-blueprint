@@ -14,8 +14,8 @@ function requireVar() {
 #
 # $1 - the path of a file or folder 
 function assertPath() {
-    if [ -e $1 ]; then
-        echo "Path '$1' does not exist"
+    if [ ! -e "$PWD/$1" ]; then
+        echo "Path '$PWD/$1' does not exist"
         exit 1
     fi
 }
