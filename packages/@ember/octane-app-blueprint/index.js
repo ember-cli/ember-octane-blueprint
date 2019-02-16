@@ -48,9 +48,6 @@ module.exports = {
     return this.addAddonsToProject({
       packages: [
         {name: 'ember-data'},
-        {
-          name: '@glimmer/component'
-        },
         // {
         //   // TODO: To be (partially) replaced by
         //   //       https://github.com/emberjs/rfcs/pull/388

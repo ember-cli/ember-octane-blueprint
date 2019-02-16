@@ -43,9 +43,6 @@ module.exports = {
     return this.addAddonsToProject({
       packages: [
         {
-          name: '@glimmer/component'
-        },
-        {
           name: 'ember-auto-import'
         },
       ]
