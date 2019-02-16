@@ -1,3 +1,5 @@
 node_modules
 yarn-error.log
 packages/@ember/**/*.tgz
+/my-addon
+/my-app

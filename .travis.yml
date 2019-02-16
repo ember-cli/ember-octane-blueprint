@@ -36,6 +36,15 @@ jobs:
     install: cd $APP_PATH && yarn install --non-interactive
     script: yarn lint:js
 
+  - stage: Tests
+    name: Generating an App
+    script: ./scripts/tests/test-app-blueprint.sh
+
+  - stage: Tests
+    name: Generating an Addon
+    script: ./scripts/tests/test-addon-blueprint.sh
+
+
   ###################################
   # Auto-publish the npm packages
   ###################################
