@@ -4,7 +4,14 @@
 #
 set -e
 
-npm install -g ember
+source ./scripts/tests/-helpers.sh
 
-ember new my-app -b $APP_PATH
+name="my-app"
 
+requireVar "APP_PATH"
+
+rm -rf $name
+
+npx ember-cli new $name -b $APP_PATH
+
+assertPath "$name/src"

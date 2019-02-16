@@ -4,7 +4,13 @@
 #
 set -e
 
-npm install -g ember
+source ./scripts/tests/-helpers.sh
 
-ember addon my-addon -b $ADDON_PATH
+name="my-addon"
 
+requireVar "ADDON_PATH"
+rm -rf $name
+
+npx ember-cli addon $name -b $ADDON_PATH
+
+assertPath "$name/src"
