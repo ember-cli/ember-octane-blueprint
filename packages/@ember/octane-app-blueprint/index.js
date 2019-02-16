@@ -47,17 +47,7 @@ module.exports = {
   afterInstall() {
     return this.addAddonsToProject({
       packages: [
-        {
-          // To be replaced by built-in decorators
-          name: 'ember-decorators',
-          target: '5.1.2',
-        },
         {name: 'ember-data'},
-        {
-          // TODO: To be replaced by built-in glimmer components
-          //       https://github.com/emberjs/rfcs/pull/338
-          name: 'sparkles-component'
-        },
         // {
         //   // TODO: To be (partially) replaced by
         //   //       https://github.com/emberjs/rfcs/pull/388

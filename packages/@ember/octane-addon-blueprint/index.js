@@ -43,13 +43,6 @@ module.exports = {
     return this.addAddonsToProject({
       packages: [
         {
-          name: 'ember-decorators',
-          target: '5.1.2',
-        },
-        {
-          name: 'sparkles-component'
-        },
-        {
           name: 'ember-auto-import'
         },
       ]
