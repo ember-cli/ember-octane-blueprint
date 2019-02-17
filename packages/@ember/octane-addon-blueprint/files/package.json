@@ -25,6 +25,7 @@
     "ember-cli-htmlbars": "^3.0.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.2",
     "@ember/optional-features": "^0.7.0",
     "@glimmer/component": "^0.14.0-alpha.3",
     "broccoli-asset-rev": "^3.0.0",
