@@ -42,7 +42,6 @@ module.exports = {
   afterInstall() {
     return this.addAddonsToProject({
       packages: [
-        {name: '@ember-decorators/babel-transforms'},
         {name: 'ember-auto-import'},
       ]
     });

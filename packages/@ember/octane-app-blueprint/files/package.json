@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.0.2",
+    "@ember-decorators/babel-transforms": "^5.1.3",
     "@ember/optional-features": "^0.7.0",
     "@glimmer/component": "^0.14.0-alpha.3",
     "broccoli-asset-rev": "^3.0.0",

@@ -47,7 +47,6 @@ module.exports = {
   afterInstall() {
     return this.addAddonsToProject({
       packages: [
-        {name: '@ember-decorators/babel-transforms'},
         {name: 'ember-data'},
         // {
         //   // TODO: To be (partially) replaced by
