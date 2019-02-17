@@ -37,13 +37,5 @@ module.exports = {
       };
     });
 
-  },
-
-  afterInstall() {
-    return this.addAddonsToProject({
-      packages: [
-        {name: 'ember-auto-import'},
-      ]
-    });
   }
 };
