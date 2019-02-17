@@ -29,7 +29,7 @@ ember addon my-addon -b @ember/octane-addon-blueprint
 Included:
 
  - Module Unification
- - Sparkles Components (eventually Glimmer, but built in)
+ - Glimmer Components
  - ember-decorators (eventually will be built in)
  - ember-auto-import
  - no jquery
