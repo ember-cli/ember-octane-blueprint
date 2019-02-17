@@ -42,30 +42,5 @@ module.exports = {
     return {
       __component__() { return options.locals.component; },
     };
-  },
-
-  afterInstall() {
-    return this.addAddonsToProject({
-      packages: [
-        {name: '@ember-decorators/babel-transforms'},
-        {name: 'ember-data'},
-        // {
-        //   // TODO: To be (partially) replaced by
-        //   //       https://github.com/emberjs/rfcs/pull/388
-        //   // TODO: not added, because there isn't a way to specify an unpublished version
-        //   name: 'ember-composable-helpers#13aa3b5c026f062c9a5ac234c5354e0100a9ba61',
-        //   // https://github.com/DockYard/ember-composable-helpers/commit/13aa3b5c026f062c9a5ac234c5354e0100a9ba61
-        // },
-        {
-          // TODO: remove when native importing is supported
-          name: 'ember-auto-import'
-        },
-        // {
-        //   // TODO: unsure if officially should be a part of the bundle,
-        //   //       visit /_analyze after startember-cli-bundle-analyzering the app
-        //   name: 'ember-cli-bundle-analyzer'
-        // }
-      ]
-    });
   }
 };
