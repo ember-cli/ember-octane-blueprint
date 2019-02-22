@@ -35,6 +35,35 @@ Included:
  - ember-auto-import
  - no jquery
 
+### Glimmer Component Example
+
+```src/ui/components/counter/component.js
+import Component from '@ember/component';
+import { tracked } from '@glimmer/tracking';
+
+export default class HolaComponent extends Component {
+  @tracked count = 0;
+
+  increment() {
+    this.count++;
+  }
+
+  decrement() {
+    this.count--;
+  }
+}
+
+```
+
+```src/ui/components/counter/template.hbs
+
+Count: {{this.count}}
+<br/>
+<button {{action this.increment}}>Click to increase</button>
+<button {{action this.decrement}}>Click to decrease</button>
+
+```
+
 
 ## Building/Contributing:
 ```bash
