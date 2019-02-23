@@ -38,7 +38,7 @@ Included:
 ### Glimmer Component Example
 
 ```src/ui/components/counter/component.js
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
 export default class HolaComponent extends Component {
