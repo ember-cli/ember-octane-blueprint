@@ -6,7 +6,7 @@
     "ember-addon",
     "ember-blueprint"
   ],
-  "repository": "",
+  "repository": "https://github.com/ember-cli/ember-octane-blueprint",
   "license": "MIT",
   "author": "",
   "scripts": {
