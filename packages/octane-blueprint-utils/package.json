@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "author": "ember-cli contributors",
+  "repository": "https://github.com/ember-cli/ember-octane-blueprint",
   "dependencies": {
     "got": "^9.6.0"
   }
