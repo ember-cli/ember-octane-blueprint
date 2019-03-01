@@ -74,7 +74,7 @@ git clone git@github.com:ember-cli/ember-octane-blueprint.git
 cd ember-octane-blueprint/packages/\@ember/octane-app-blueprint
 yarn install
 
-cd ../octane-app-blueprint
+cd ../octane-addon-blueprint
 yarn install
 
 # Move to the desired folder to create your octane app or addon
