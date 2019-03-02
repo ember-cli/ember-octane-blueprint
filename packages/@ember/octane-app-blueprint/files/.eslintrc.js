@@ -21,6 +21,7 @@ module.exports = {
     // node files
     {
       files: [
+        '.ember-cli.js',
         '.eslintrc.js',
         '.template-lintrc.js',
         'ember-cli-build.js',
@@ -29,6 +30,9 @@ module.exports = {
         'config/**/*.js',
         'lib/*/index.js'
       ],
+      excludedFiles: [
+        'src/**',
+      ],
       parserOptions: {
         sourceType: 'script',
         ecmaVersion: 2015
@@ -36,7 +40,11 @@ module.exports = {
       env: {
         browser: false,
         node: true
-      }
+      },
+      plugins: ['node'],
+      rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
+        // add your custom rules and overrides for node files here
+      })
     }
   ]
 };
