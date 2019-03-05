@@ -23,5 +23,8 @@
   "devDependencies": {
     "eslint": "^5.12.1",
     "eslint-plugin-node": "^8.0.1"
+  },
+  "resolutions": {
+    "octane-blueprint-utils": "link:../octane-blueprint-utils"
   }
 }
