@@ -5,6 +5,7 @@
   "author": "ember-cli contributors",
   "repository": "https://github.com/ember-cli/ember-octane-blueprint",
   "dependencies": {
-    "got": "^9.6.0"
+    "got": "^9.6.0",
+    "tar-stream": "^2.0.1"
   }
 }
