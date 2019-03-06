@@ -12,7 +12,10 @@ module.exports = {
   filesToRemove: [],
 
   locals(options) {
-    return Promise.all([getEmberCLIVersion(), getURLFor('canary')]).then((emberCLIURL, emberURL) => {
+    return Promise.all([
+      getEmberCLIVersion(),
+      getURLFor('canary')
+    ]).then(([emberCLIURL, emberURL]) => {
       let name = stringUtil.dasherize(options.entity.name);
       let entity = options.entity;
       let rawName = entity.name;
