@@ -1,5 +1,5 @@
 {
-  "name": "ember-octane-app-blueprint",
+  "name": "@ember/octane-app-blueprint",
   "version": "0.9.2",
   "description": "The default blueprint for octane apps.",
   "keywords": [

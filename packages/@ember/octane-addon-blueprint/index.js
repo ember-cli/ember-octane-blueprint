@@ -6,7 +6,7 @@ const getEmberCLIVersion = require('octane-blueprint-utils').getEmberCLIVersion;
 
 module.exports = {
   description: 'Generates an Ember Octane addon.',
-  name: 'ember-octane-addon-blueprint',
+  name: '@ember/octane-addon-blueprint',
 
   filesToRemove: [],
 
