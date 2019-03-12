@@ -19,7 +19,6 @@ ember addon my-addon -b @ember/octane-addon-blueprint
 
 Included:
 
- - Module Unification
  - Glimmer Components
  - Native Decorators
  - Tracked Properties
