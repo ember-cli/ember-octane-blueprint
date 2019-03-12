@@ -2,10 +2,6 @@
 
 module.exports = function(environment) {
   let ENV = {
-    'ember-resolver': {
-      features: {
-      }
-    },
     modulePrefix: 'dummy',
     environment,
     rootURL: '/',
