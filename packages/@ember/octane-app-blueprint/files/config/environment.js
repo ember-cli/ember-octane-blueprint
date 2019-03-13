@@ -2,11 +2,6 @@
 
 module.exports = function(environment) {
   let ENV = {
-    'ember-resolver': {
-      features: {
-        EMBER_RESOLVER_MODULE_UNIFICATION: true
-      }
-    },
     modulePrefix: '<%= modulePrefix %>',
     environment,
     rootURL: '/',
@@ -15,7 +10,6 @@ module.exports = function(environment) {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
-        EMBER_MODULE_UNIFICATION: true,
         EMBER_NATIVE_DECORATOR_SUPPORT: true,
         EMBER_METAL_TRACKED_PROPERTIES: true,
       },
