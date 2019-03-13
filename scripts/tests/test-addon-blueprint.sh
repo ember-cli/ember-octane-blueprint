@@ -15,4 +15,5 @@ setup $ADDON_PATH
 
 npx ember-cli addon $name -b "./$ADDON_PATH" --verbose
 
-assertPath "$name/src"
+assertPath "$name/addon"
+assertPath "$name/app"

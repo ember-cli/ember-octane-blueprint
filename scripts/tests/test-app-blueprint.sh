@@ -15,4 +15,4 @@ setup $APP_PATH
 
 npx ember-cli new $name -b "./$APP_PATH" --verbose
 
-assertPath "$name/src"
+assertPath "$name/app"
