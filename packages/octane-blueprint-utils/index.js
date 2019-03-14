@@ -2,7 +2,7 @@
 
 const got = require('got');
 
-function getEmberCLIVersionFromTarball() {
+function getRepoVersionFromTarball(org, repo) {
   // lazy to avoid extra work when not rate-limited
   const tar = require('tar-stream');
   const zlib = require('zlib');
@@ -21,7 +21,7 @@ function getEmberCLIVersionFromTarball() {
     });
 
     got
-      .stream('http://github.com/ember-cli/ember-cli/tarball/master')
+      .stream(`http://github.com/${org}/${repo}/tarball/master`)
       .pipe(zlib.createGunzip())
       .pipe(extract)
       .on('error', (reason) => {
@@ -37,9 +37,9 @@ function getEmberCLIVersionFromTarball() {
   });
 }
 
-function getEmberCLIVersion() {
+function getRepoVersion(org, repo) {
   return got(
-    `https://api.github.com/repos/ember-cli/ember-cli/git/refs/heads/master`,
+    `https://api.github.com/repos/${org}/${repo}/git/refs/heads/master`,
     { json: true },
   )
     .then(result => {
@@ -47,14 +47,14 @@ function getEmberCLIVersion() {
     })
     .catch(result => {
       if (result.statusCode === 403 && result.headers['x-ratelimit-remaining'] === '0') {
-        return getEmberCLIVersionFromTarball();
+        return getRepoVersionFromTarball(org, repo);
       }
 
       throw error;
     })
-  .then(version => `github:ember-cli/ember-cli#${version}`);
+  .then(version => `github:${org}/${repo}#${version}`);
 }
 
 module.exports = {
-  getEmberCLIVersion
+  getRepoVersion
 };

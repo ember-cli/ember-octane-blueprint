@@ -2,7 +2,7 @@
 
 const stringUtil = require('ember-cli-string-utils');
 const getURLFor = require('ember-source-channel-url');
-const getEmberCLIVersion = require('octane-blueprint-utils').getEmberCLIVersion;
+const getRepoVersion = require('octane-blueprint-utils').getRepoVersion;
 
 module.exports = {
   description: 'Generates an Ember Octane addon.',
@@ -12,7 +12,7 @@ module.exports = {
 
   locals(options) {
     return Promise.all([
-      getEmberCLIVersion(),
+      getRepoVersion('ember-cli', 'ember-cli'),
       getURLFor('canary')
     ]).then(([emberCLIURL, emberURL]) => {
       let addonEntity = options.entity;
