@@ -14,8 +14,9 @@ module.exports = {
   locals(options) {
     return Promise.all([
       getRepoVersion('ember-cli', 'ember-cli'),
+      getRepoVersion('emberjs', 'data'),
       getURLFor('canary')
-    ]).then(([emberCLIURL, emberURL]) => {
+    ]).then(([emberCLIURL, emberDataURL, emberURL]) => {
       let name = stringUtil.dasherize(options.entity.name);
       let entity = options.entity;
       let rawName = entity.name;
@@ -28,6 +29,7 @@ module.exports = {
         yarn: options.yarn,
         welcome: options.welcome,
         emberCanaryVersion: emberURL,
+        emberData: emberDataURL,
         emberCLI: emberCLIURL
       };
     });
