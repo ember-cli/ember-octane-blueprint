@@ -27,7 +27,7 @@ Included:
 
 ### Glimmer Component Example
 
-```src/ui/components/counter/component.js
+```app/components/counter/component.js
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
@@ -45,7 +45,7 @@ export default class HolaComponent extends Component {
 
 ```
 
-```src/ui/components/counter/template.hbs
+```app/components/counter/template.hbs
 
 Count: {{this.count}}
 <br/>

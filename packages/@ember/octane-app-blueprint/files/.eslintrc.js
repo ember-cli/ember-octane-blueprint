@@ -31,7 +31,7 @@ module.exports = {
         'lib/*/index.js'
       ],
       excludedFiles: [
-        'src/**',
+        'app/**',
       ],
       parserOptions: {
         sourceType: 'script',
