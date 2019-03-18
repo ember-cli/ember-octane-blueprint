@@ -13,6 +13,7 @@ module.exports = function(environment) {
         EMBER_NATIVE_DECORATOR_SUPPORT: true,
         EMBER_METAL_TRACKED_PROPERTIES: true,
         EMBER_GLIMMER_ANGLE_BRACKET_NESTED_LOOKUP: true,
+        EMBER_GLIMMER_ANGLE_BRACKET_BUILT_INS: true,
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
