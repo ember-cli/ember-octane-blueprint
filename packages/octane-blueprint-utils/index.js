@@ -13,7 +13,11 @@ function getRepoVersionFromTarball(org, repo) {
     extract.on('entry', function(header, stream, next) {
       let isRoot = header.name.indexOf('/') === header.name.length - 1;
       if (isRoot) {
-        console.log('header.name', header.name);
+        let parts = header.name.split('-');
+        if (parts.length < 5) {
+          throw new Error(`header.name did not have the expected format: ${header.name}`);
+        }
+
         version = header.name.split('-')[4].slice(0, -1);
       }
 
