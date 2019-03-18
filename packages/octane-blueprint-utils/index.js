@@ -14,11 +14,11 @@ function getRepoVersionFromTarball(org, repo) {
       let isRoot = header.name.indexOf('/') === header.name.length - 1;
       if (isRoot) {
         let parts = header.name.split('-');
-        if (parts.length < 5) {
-          throw new Error(`header.name did not have the expected format: ${header.name}`);
-        }
 
-        version = header.name.split('-')[4].slice(0, -1);
+        // examples:
+        //   emberjs-data-sha123456abcd/
+        //   ember-cli-ember-cli-sha123456abcd/
+        version = parts[parts.length - 1].slice(0, -1);
       }
 
       stream.resume();
