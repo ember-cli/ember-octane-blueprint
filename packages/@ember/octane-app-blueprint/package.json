@@ -1,6 +1,6 @@
 {
   "name": "@ember/octane-app-blueprint",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "description": "The default blueprint for octane apps.",
   "keywords": [
     "ember-addon",
@@ -15,7 +15,7 @@
   "dependencies": {
     "ember-cli-string-utils": "^1.1.0",
     "ember-source-channel-url": "^1.1.0",
-    "octane-blueprint-utils": "^0.2.0"
+    "octane-blueprint-utils": "^0.2.2"
   },
   "devDependencies": {
     "eslint": "^5.15.0",
