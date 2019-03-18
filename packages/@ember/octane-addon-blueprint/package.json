@@ -1,6 +1,6 @@
 {
   "name": "@ember/octane-addon-blueprint",
-  "version": "0.17.1",
+  "version": "0.17.2",
   "description": "The default blueprint for octane addons.",
   "keywords": [
     "ember-addon",
@@ -15,7 +15,7 @@
   "dependencies": {
     "ember-cli-string-utils": "^1.1.0",
     "ember-source-channel-url": "^1.1.0",
-    "octane-blueprint-utils": "^0.2.2"
+    "octane-blueprint-utils": "^0.2.3"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
