@@ -30,15 +30,16 @@ Included:
 ```app/components/counter/component.js
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 export default class HolaComponent extends Component {
   @tracked count = 0;
 
-  increment() {
+  @action increment() {
     this.count++;
   }
 
-  decrement() {
+  @action decrement() {
     this.count--;
   }
 }
@@ -49,8 +50,8 @@ export default class HolaComponent extends Component {
 
 Count: {{this.count}}
 <br/>
-<button {{action this.increment}}>Click to increase</button>
-<button {{action this.decrement}}>Click to decrease</button>
+<button {{on 'click' this.increment}}>Click to increase</button>
+<button {{on 'click' this.decrement}}>Click to decrease</button>
 
 ```
 
