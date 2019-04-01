@@ -18,7 +18,7 @@
     "octane-blueprint-utils": "^0.2.3"
   },
   "devDependencies": {
-    "eslint": "^5.15.3",
+    "eslint": "^5.16.0",
     "eslint-plugin-node": "^8.0.1"
   },
   "engines": {
