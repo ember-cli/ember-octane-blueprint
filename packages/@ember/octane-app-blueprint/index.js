@@ -22,6 +22,10 @@ module.exports = {
       let rawName = entity.name;
       let namespace = stringUtil.classify(rawName);
 
+      // temporarily pinning ember-data see tracking issue for details:
+      // https://github.com/ember-cli/ember-octane-blueprint/issues/95 to
+      emberDataURL = 'github:emberjs/data#1df833396855d956b817540923dd89338463fec2';
+
       return {
         name,
         modulePrefix: name,
