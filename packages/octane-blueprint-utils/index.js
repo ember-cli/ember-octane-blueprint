@@ -55,7 +55,7 @@ function getRepoVersion(org, repo) {
         return getRepoVersionFromTarball(org, repo);
       }
 
-      throw error;
+      throw result;
     })
   .then(version => `github:${org}/${repo}#${version}`);
 }
