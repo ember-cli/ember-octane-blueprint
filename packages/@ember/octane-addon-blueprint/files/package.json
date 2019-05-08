@@ -1,11 +1,10 @@
 {
   "name": "<%= addonName %>",
   "version": "0.0.0",
+  "description": "Small description for <%= addonName %> goes here",
   "keywords": [
     "ember-addon"
   ],
-  "private": true,
-  "description": "Small description for <%= addonName %> goes here",
   "repository": "",
   "license": "MIT",
   "author": "",
@@ -25,9 +24,9 @@
     "ember-cli-htmlbars": "^3.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.0.2",
     "@ember/optional-features": "^0.7.0",
     "@glimmer/component": "^0.14.0-alpha.3",
+    "babel-eslint": "^8.0.2",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.2.20",
     "ember-cli": "<%= emberCLI %>",

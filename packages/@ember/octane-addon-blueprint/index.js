@@ -33,4 +33,7 @@ module.exports = {
     });
 
   }
+
+  // TODO: Rename gitignore and npmignore to dot-files
+
 };

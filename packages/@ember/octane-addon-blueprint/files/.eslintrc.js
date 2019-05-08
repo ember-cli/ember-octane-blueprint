@@ -32,6 +32,8 @@ module.exports = {
         'tests/dummy/config/**/*.js'
       ],
       excludedFiles: [
+        'addon/**',
+        'addon-test-support/**',
         'app/**',
         'tests/dummy/app/**'
       ],
@@ -49,4 +51,4 @@ module.exports = {
       })
     }
   ]
-}
+};
