@@ -6,7 +6,7 @@ Octane Blueprints
 [![Addon](https://img.shields.io/npm/v/@ember/octane-addon-blueprint.svg?label=Addon)](https://www.npmjs.com/package/@ember/octane-addon-blueprint)
 
 
-Official ember packages
+New Projects
 
 ```bash
 # Apps
@@ -14,6 +14,16 @@ ember new my-app -b @ember/octane-app-blueprint
 
 # Addons
 ember addon my-addon -b @ember/octane-addon-blueprint
+```
+
+Existing Projects
+
+```bash
+# Apps
+ember init -b @ember/octane-app-blueprint
+
+# Addons
+???
 ```
 
 
