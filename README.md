@@ -23,7 +23,7 @@ Existing Projects
 ember init -b @ember/octane-app-blueprint
 
 # Addons
-???
+ember init -b @ember/octane-addon-blueprint
 ```
 
 
