@@ -14,17 +14,13 @@ module.exports = {
   locals(options) {
     return Promise.all([
       getRepoVersion('ember-cli', 'ember-cli'),
-      getRepoVersion('emberjs', 'data'),
       getURLFor('canary')
-    ]).then(([emberCLIURL, emberDataURL, emberURL]) => {
+    ]).then(([emberCLIURL, emberURL]) => {
       let name = stringUtil.dasherize(options.entity.name);
       let entity = options.entity;
       let rawName = entity.name;
       let namespace = stringUtil.classify(rawName);
 
-      // temporarily pinning ember-data see tracking issue for details:
-      // https://github.com/ember-cli/ember-octane-blueprint/issues/95 to
-      emberDataURL = 'github:emberjs/data#1df833396855d956b817540923dd89338463fec2';
 
       return {
         name,
@@ -33,7 +29,6 @@ module.exports = {
         yarn: options.yarn,
         welcome: options.welcome,
         emberCanaryVersion: emberURL,
-        emberData: emberDataURL,
         emberCLI: emberCLIURL
       };
     });

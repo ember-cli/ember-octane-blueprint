@@ -1,6 +1,6 @@
 {
   "name": "@ember/octane-addon-blueprint",
-  "version": "0.20.1",
+  "version": "0.22.0",
   "description": "The default blueprint for octane addons.",
   "keywords": [
     "ember-addon",
@@ -21,8 +21,8 @@
     "node": "8.* || >= 10.*"
   },
   "devDependencies": {
-    "eslint": "^5.12.1",
-    "eslint-plugin-node": "^8.0.1"
+    "eslint": "^5.16.0",
+    "eslint-plugin-node": "^9.0.1"
   },
   "resolutions": {
     "octane-blueprint-utils": "link:../octane-blueprint-utils"
