@@ -15,12 +15,20 @@ module.exports = {
       getRepoVersion('ember-cli', 'ember-cli'),
       getURLFor('canary')
     ]).then(([emberCLIURL, emberURL]) => {
+      let entity = { name: 'dummy' };
+      let rawName = entity.name;
+      let name = stringUtil.dasherize(rawName);
+      let namespace = stringUtil.classify(rawName);
+
       let addonEntity = options.entity;
       let addonRawName = addonEntity.name;
       let addonName = stringUtil.dasherize(addonRawName);
       let addonNamespace = stringUtil.classify(addonRawName);
 
       return {
+        name,
+        modulePrefix: name,
+        namespace,
         addonName,
         addonNamespace,
         emberCanaryVersion: emberURL,
@@ -32,8 +40,14 @@ module.exports = {
       };
     });
 
-  }
+  },
 
-  // TODO: Rename gitignore and npmignore to dot-files
+  mapFile() {
+    let result = this._super.mapFile.apply(this, arguments);
+    if (new RegExp('^npmignore').test(result)) {
+      return '.npmignore'.replace(':path', result);
+    }
+    return result;
+  },
 
 };
