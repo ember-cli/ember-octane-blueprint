@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 2017,
+    ecmaVersion: 2018,
     sourceType: 'module'
   },
   plugins: [
@@ -32,6 +32,8 @@ module.exports = {
         'tests/dummy/config/**/*.js'
       ],
       excludedFiles: [
+        'addon/**',
+        'addon-test-support/**',
         'app/**',
         'tests/dummy/app/**'
       ],
@@ -49,4 +51,4 @@ module.exports = {
       })
     }
   ]
-}
+};
