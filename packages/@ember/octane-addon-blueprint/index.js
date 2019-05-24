@@ -44,8 +44,8 @@ module.exports = {
 
   mapFile() {
     let result = this._super.mapFile.apply(this, arguments);
-    if (new RegExp('^npmignore').test(result)) {
-      return '.npmignore'.replace(':path', result);
+    if (result === 'npmignore') {
+      return '.npmignore';
     }
     return result;
   },
