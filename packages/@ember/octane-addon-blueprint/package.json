@@ -1,6 +1,6 @@
 {
   "name": "@ember/octane-addon-blueprint",
-  "version": "0.25.0",
+  "version": "0.26.0",
   "description": "The default blueprint for octane addons.",
   "keywords": [
     "ember-addon",
