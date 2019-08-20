@@ -8,6 +8,12 @@
 # exit if any command fails
 set -e
 
+if [ -z "$1" ]
+  then
+    echo "No argument supplied. Specify either 'major', 'minor', or 'patch'"
+    exit 1
+fi
+
 versionIncrement=$1
 packages=( "packages/@ember/octane-app-blueprint" "packages/@ember/octane-addon-blueprint" )
 
