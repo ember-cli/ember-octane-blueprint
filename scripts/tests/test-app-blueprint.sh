@@ -16,3 +16,5 @@ setup $APP_PATH
 npx ember-cli new $name -b "./$APP_PATH" --verbose
 
 assertPath "$name/app"
+
+( cd $name && npm run lint:js && npm run lint:hbs )
