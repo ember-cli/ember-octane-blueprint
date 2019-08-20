@@ -17,3 +17,5 @@ npx ember-cli addon $name -b "./$ADDON_PATH" --verbose
 
 assertPath "$name/addon"
 assertPath "$name/app"
+
+( cd $name && npm run lint:js && npm run lint:hbs && npm run test )
