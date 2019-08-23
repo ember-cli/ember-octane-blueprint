@@ -2,7 +2,7 @@
 
 const got = require('got');
 
-function getRepoVersionFromTarball(org, repo) {
+function getRepoVersionFromTarball(org, repo, branch = 'master') {
   // lazy to avoid extra work when not rate-limited
   const tar = require('tar-stream');
   const zlib = require('zlib');
@@ -26,7 +26,7 @@ function getRepoVersionFromTarball(org, repo) {
     });
 
     got
-      .stream(`http://github.com/${org}/${repo}/tarball/master`)
+      .stream(`http://github.com/${org}/${repo}/tarball/${branch}`)
       .pipe(zlib.createGunzip())
       .pipe(extract)
       .on('error', (reason) => {
@@ -42,9 +42,9 @@ function getRepoVersionFromTarball(org, repo) {
   });
 }
 
-function getRepoVersion(org, repo) {
+function getRepoVersion(org, repo, branch = 'master') {
   return got(
-    `https://api.github.com/repos/${org}/${repo}/git/refs/heads/master`,
+    `https://api.github.com/repos/${org}/${repo}/git/refs/heads/${branch}`,
     { json: true },
   )
     .then(result => {
@@ -52,7 +52,7 @@ function getRepoVersion(org, repo) {
     })
     .catch(result => {
       if (result.statusCode === 403 && result.headers['x-ratelimit-remaining'] === '0') {
-        return getRepoVersionFromTarball(org, repo);
+        return getRepoVersionFromTarball(org, repo, branch);
       }
 
       throw result;
