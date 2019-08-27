@@ -15,7 +15,7 @@ if [ -z "$1" ]
 fi
 
 versionIncrement=$1
-packages=( "packages/@ember/octane-app-blueprint" "packages/@ember/octane-addon-blueprint" )
+packages=( "packages/octane-blueprint-utils" "packages/@ember/octane-app-blueprint" "packages/@ember/octane-addon-blueprint" )
 
 for var in "${packages[@]}"
 do
