@@ -21,7 +21,7 @@
     "node": "8.* || >= 10.*"
   },
   "devDependencies": {
-    "eslint": "^6.2.2",
+    "eslint": "^6.3.0",
     "eslint-plugin-node": "^9.2.0"
   },
   "resolutions": {
