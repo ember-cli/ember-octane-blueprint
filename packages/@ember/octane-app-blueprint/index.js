@@ -1,22 +1,21 @@
 'use strict';
 
+const latestVersion = require('latest-version');
 const stringUtil = require('ember-cli-string-utils');
-const getURLFor = require('ember-source-channel-url');
 const getRepoVersion = require('octane-blueprint-utils').getRepoVersion;
 
 module.exports = {
   description: 'Generates an Ember Octane application.',
-  // name: '@ember/octane-app-blueprint',
   name: '@ember/octane-app-blueprint',
 
   filesToRemove: [],
 
   locals(options) {
     return Promise.all([
-      getRepoVersion('ember-cli', 'ember-cli'),
+      latestVersion('ember-cli', {version: 'beta'}),
       getRepoVersion('ember-cli', 'ember-cli-htmlbars', 'colocation'),
-      getURLFor('canary')
-    ]).then(([emberCLI, emberCLIHTMLBars, emberURL]) => {
+      latestVersion('ember-source', {version: 'beta'})
+    ]).then(([emberCLI, emberCLIHTMLBars, emberSource]) => {
       let name = stringUtil.dasherize(options.entity.name);
       let entity = options.entity;
       let rawName = entity.name;
@@ -29,7 +28,7 @@ module.exports = {
         namespace,
         yarn: options.yarn,
         welcome: options.welcome,
-        emberCanaryVersion: emberURL,
+        emberSourceVersion: emberSource,
         emberCLI,
         emberCLIHTMLBars,
       };
