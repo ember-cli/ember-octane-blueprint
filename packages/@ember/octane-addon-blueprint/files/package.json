@@ -26,7 +26,6 @@
   },
   "devDependencies": {
     "@ember/optional-features": "^0.7.0",
-    "@ember/render-modifiers": "^1.0.0",
     "@glimmer/component": "^0.14.0-alpha.12",
     "babel-eslint": "^8.0.2",
     "broccoli-asset-rev": "^3.0.0",
