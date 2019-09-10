@@ -14,8 +14,9 @@ module.exports = {
     return Promise.all([
       latestVersion('ember-cli', {version: 'beta'}),
       getRepoVersion('ember-cli', 'ember-cli-htmlbars', 'colocation'),
+      latestVersion('ember-data', {version: 'beta'}),
       latestVersion('ember-source', {version: 'beta'})
-    ]).then(([emberCLI, emberCLIHTMLBars, emberSource]) => {
+    ]).then(([emberCLI, emberCLIHTMLBars, emberData, emberSource]) => {
       let name = stringUtil.dasherize(options.entity.name);
       let entity = options.entity;
       let rawName = entity.name;
@@ -31,6 +32,7 @@ module.exports = {
         emberSourceVersion: emberSource,
         emberCLI,
         emberCLIHTMLBars,
+        emberData,
       };
     });
 
