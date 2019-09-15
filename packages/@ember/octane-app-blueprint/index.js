@@ -3,6 +3,7 @@
 const latestVersion = require('latest-version');
 const stringUtil = require('ember-cli-string-utils');
 const getRepoVersion = require('octane-blueprint-utils').getRepoVersion;
+const getChannelURL = require('ember-source-channel-url');
 
 module.exports = {
   description: 'Generates an Ember Octane application.',
@@ -15,7 +16,7 @@ module.exports = {
       latestVersion('ember-cli', {version: 'beta'}),
       getRepoVersion('ember-cli', 'ember-cli-htmlbars', 'colocation'),
       latestVersion('ember-data', {version: 'beta'}),
-      latestVersion('ember-source', {version: 'beta'})
+      getChannelURL('beta')
     ]).then(([emberCLI, emberCLIHTMLBars, emberData, emberSource]) => {
       let name = stringUtil.dasherize(options.entity.name);
       let entity = options.entity;
