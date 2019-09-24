@@ -13,9 +13,8 @@ module.exports = {
   locals(options) {
     return Promise.all([
       latestVersion('ember-cli', {version: 'beta'}),
-      latestVersion('ember-data', {version: 'beta'}),
       getChannelURL('beta')
-    ]).then(([emberCLI, emberData, emberSource]) => {
+    ]).then(([emberCLI, emberSource]) => {
       let name = stringUtil.dasherize(options.entity.name);
       let entity = options.entity;
       let rawName = entity.name;
@@ -30,7 +29,6 @@ module.exports = {
         welcome: options.welcome,
         emberSourceVersion: emberSource,
         emberCLI,
-        emberData,
       };
     });
 
