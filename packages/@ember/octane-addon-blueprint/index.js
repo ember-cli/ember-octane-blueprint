@@ -2,7 +2,6 @@
 
 const latestVersion = require('latest-version');
 const stringUtil = require('ember-cli-string-utils');
-const getRepoVersion = require('octane-blueprint-utils').getRepoVersion;
 const getChannelURL = require('ember-source-channel-url');
 
 module.exports = {
@@ -14,9 +13,8 @@ module.exports = {
   locals(options) {
     return Promise.all([
       latestVersion('ember-cli', {version: 'beta'}),
-      getRepoVersion('ember-cli', 'ember-cli-htmlbars', 'colocation'),
       getChannelURL('beta')
-    ]).then(([emberCLI, emberCLIHTMLBars, emberSource]) => {
+    ]).then(([emberCLI, emberSource]) => {
       let entity = { name: 'dummy' };
       let rawName = entity.name;
       let name = stringUtil.dasherize(rawName);
@@ -35,7 +33,6 @@ module.exports = {
         addonNamespace,
         emberSourceVersion: emberSource,
         emberCLI,
-        emberCLIHTMLBars,
         year: new Date().getFullYear(),
         yarn: options.yarn,
         welcome: options.welcome,
