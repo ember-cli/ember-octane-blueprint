@@ -16,7 +16,7 @@
     "ember-cli-string-utils": "^1.1.0",
     "ember-source-channel-url": "^2.0.1",
     "latest-version": "^5.1.0",
-    "octane-blueprint-utils": "^0.33.1"
+    "octane-blueprint-utils": "^0.35.0"
   },
   "engines": {
     "node": "8.* || >= 10.*"
