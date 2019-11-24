@@ -71,7 +71,7 @@ Count: {{this.count}}
 # Clone repo
 git clone git@github.com:ember-cli/ember-octane-blueprint.git
 
-# Install dependecies
+# Install dependencies
 cd ember-octane-blueprint/packages/\@ember/octane-app-blueprint
 yarn install
 
