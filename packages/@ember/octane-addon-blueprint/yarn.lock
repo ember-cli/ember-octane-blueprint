@@ -864,10 +864,10 @@ object-assign@^4.1.0:
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
   integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
 
-octane-blueprint-utils@^0.35.1:
-  version "0.35.1"
-  resolved "https://registry.yarnpkg.com/octane-blueprint-utils/-/octane-blueprint-utils-0.35.1.tgz#b019b7a721363d21594d40af74a92c0d0d993bac"
-  integrity sha512-xHyb0mIbD9NaZifRZeu1c3evnf5iEYlfeGpcdsEGSelABOlClVzDaQTpZeM1TvkPX1F2ZxbCp0daKjAwaud7Fg==
+octane-blueprint-utils@^0.36.0:
+  version "0.36.0"
+  resolved "https://registry.yarnpkg.com/octane-blueprint-utils/-/octane-blueprint-utils-0.36.0.tgz#23d93cd5b2d1d93724c8a163418f8ba63df1f0bb"
+  integrity sha512-B5RfFWBt/UWrVx3tUA4vjhKsQyIK+Q7BVcmX4OOm4ftByFI98wvKUQefy7I5yH5pgSbgVkO45GgANZrwhUqFSw==
   dependencies:
     got "^9.6.0"
     tar-stream "^2.0.1"
