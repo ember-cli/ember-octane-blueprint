@@ -7,7 +7,7 @@ Octane Blueprints
 
 ## These blueprints are deprecated
 
-Success! Ember.js Octane was relased in v3.15 of Ember, and it included a copy of these blueprints by default.
+Success! Ember.js Octane was relased in v3.15 of Ember, and it included a [copy of these blueprints by default](https://github.com/ember-cli/ember-cli/tree/master/blueprints).
 Therefore, this repository can be deprecated.
 Today, to create an Octane app,
 install at least version 3.15 of the Ember CLI and generate your app. You do not need to specify a `-b` option anymore:
