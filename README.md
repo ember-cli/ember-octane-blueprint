@@ -5,6 +5,30 @@ Octane Blueprints
 [![App](https://img.shields.io/npm/v/@ember/octane-app-blueprint.svg?label=App)](https://www.npmjs.com/package/@ember/octane-app-blueprint)
 [![Addon](https://img.shields.io/npm/v/@ember/octane-addon-blueprint.svg?label=Addon)](https://www.npmjs.com/package/@ember/octane-addon-blueprint)
 
+## These blueprints are deprecated
+
+Success! Ember.js Octane was relased in v3.15 of Ember, and it included a [copy of these blueprints by default](https://github.com/ember-cli/ember-cli/tree/master/blueprints).
+Therefore, this repository can be deprecated.
+Today, to create an Octane app,
+install at least version 3.15 of the Ember CLI and generate your app. You do not need to specify a `-b` option anymore:
+
+```
+npm install -g ember-cli
+ember new my-app-name
+```
+
+To generate an addon using Octane blueprints:
+
+```
+ember addon my-addon-name
+```
+
+To learn more, visit [emberjs.com/editions/octane](https://emberjs.com/editions/octane).
+
+## Past README content
+
+Although these blueprints are deprecated, they can still serve as a public example for how to make custom blueprints.
+
 
 New Projects
 
